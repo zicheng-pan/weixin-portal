@@ -1,0 +1,94 @@
+body{
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+.mai-icon{
+    background: rgb(64, 210, 177);
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 20px;
+}
+
+.navbar-default{
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);
+}
+.navbar-default .navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+    color: #40D2B1;
+    height: 70px;
+    line-height: 35px;
+}
+.navbar-default .navbar-nav>li>a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    height: 70px;
+    line-height: 35px;
+}
+.navbar-toggle{
+    margin-top: 17px;
+}
+.navbar-default .navbar-toggle:hover {
+    border-color: #40D2B1;
+    background-color: rgb(69, 210, 184);
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #1C9982;
+}
+.searchword{
+    margin-top: 130px;
+    text-align: center;
+}
+.searchword input[type='text']{
+    width: 80%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding-left: 3px;
+}
+.searchword button{
+    margin-top: 0px;
+    font-size: 18px;
+}
+#explaination{
+    margin-top: 10px;
+    font-size: 20px;
+}
+#explaination p {
+    margin: 15px 30px;
+}
+#explaination h2{
+    text-align: center;
+}
+.myarticle{
+    padding-top: 20px;
+}
+.myarticle li{
+   font-size: 15px;
+   text-align: left;
+
+}
+.myarticle h3{
+    padding: 10px 0px;
+ }
+.myarticle a{
+    text-decoration: none;
+
+}
+#explaination span:hover{
+    cursor: pointer;
+}
+/*footer*/
+footer{
+    position: fixed;
+    margin-top: 180px;
+    font-weight: 400;
+    text-align: center;
+}
