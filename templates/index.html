@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/animate.css')}}"/>
-    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <script src="{{url_for('static', filename='js/jquery.min.js')}}">
@@ -242,6 +240,7 @@
         });
         /*小屏幕导航点击关闭菜单*/
         $('.navbar-collapse a').click(function () {
+            alert(1);
             $('.navbar-collapse').collapse('hide');
         });
         new WOW().init();
