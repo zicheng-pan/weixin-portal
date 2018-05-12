@@ -4,6 +4,7 @@ from flask import render_template,Flask,redirect,url_for,request
 import redis
 import flask
 import datetime
+import time
 
 app = Flask('welcome-portal')
 app.secret_key = 'shiyanlou'
@@ -39,11 +40,13 @@ def event_stream():
     # 订阅'chat'频道
     pubsub.subscribe('chat')
     # 开始监听消息，如果有消息产生在返回消息
-    for message in pubsub.listen():
-        print(message)
-        # Server-Send Event 的数据格式以'data:'开始
-        yield 'data: %s\n\n' % message['data'].decode("utf-8")
-
+    while True:
+        str_message = pubsub.get_message()
+        if str_message:
+            print("message:"+str(str_message))
+            # Server-Send Event 的数据格式以'data:'开始
+            return 'data: %s\n\n' % str_message['data'].decode("utf-8")
+        time.sleep(0.1)
 
 # 登陆函数，首次访问需要登陆
 @app.route('/login', methods=['GET', 'POST'])
