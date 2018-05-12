@@ -57,7 +57,7 @@ def login():
 
 # 接收 javascript post 过来的消息
 @app.route('/js_post', methods=['POST'])
-def post():
+def js_post():
     message = flask.request.form['message']
     user = flask.session.get('user', 'anonymous')
     now = datetime.datetime.now().replace(microsecond=0).time()
