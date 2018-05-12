@@ -55,7 +55,7 @@ def login():
     if flask.request.method == 'POST':
         # 将用户信息记录到 session 中
         flask.session['user'] = flask.request.form['user']
-        return flask.redirect('/')
+        return flask.redirect('/chat')
     return '<form action="" method="post">user: <input name="user">'
 
 
