@@ -74,7 +74,7 @@ def stream():
                           mimetype="text/event-stream")
 
 
-@app.route('/')
+@app.route('/chat')
 def home():
     # 如果用户没有登陆的话，则强制登陆
     if 'user' not in flask.session:
