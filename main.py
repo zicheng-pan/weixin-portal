@@ -39,15 +39,15 @@ def event_stream():
     pubsub = r.pubsub()
     # 订阅'chat'频道
     pubsub.subscribe('chat')
+    pubsub.ignore_subscribe_messages = True
     # 开始监听消息，如果有消息产生在返回消息
     while True:
         str_message = pubsub.get_message()
         if str_message:
-            print("2222222222222222222")
-            print("message:1111111111111111111"+str(str_message))
+            print("receive"+str(str_message))
             # Server-Send Event 的数据格式以'data:'开始
-            return 'data: %s\n\n' % str_message['data'].decode("utf-8")
-        time.sleep(0.1)
+            return 'data: %s\n\n' % str_message['data'].decode('utf-8')
+        time.sleep(0.001)
 
 # 登陆函数，首次访问需要登陆
 @app.route('/login', methods=['GET', 'POST'])
@@ -66,7 +66,7 @@ def js_post():
     user = flask.session.get('user', 'anonymous')
     now = datetime.datetime.now().replace(microsecond=0).time()
     # 将消息发布到'chat'频道中
-    r.publish('chat', u'[%s] %s: %s' % (now.isoformat(), user, str(message).encode("utf-8")))
+    r.publish('chat', u'[%s] %s: %s' % (now.isoformat(), user, message))
     return flask.Response(status=204)
 
 
@@ -116,4 +116,4 @@ def chat():
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port=8080)
-
+    event_stream()
