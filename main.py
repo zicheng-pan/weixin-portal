@@ -42,7 +42,7 @@ def event_stream():
     for message in pubsub.listen():
         print(message)
         # Server-Send Event 的数据格式以'data:'开始
-        yield 'data: %s\n\n' % message['data']
+        yield 'data: %s\n\n' % message['data'].decode("utf-8")
 
 
 # 登陆函数，首次访问需要登陆
@@ -62,7 +62,7 @@ def js_post():
     user = flask.session.get('user', 'anonymous')
     now = datetime.datetime.now().replace(microsecond=0).time()
     # 将消息发布到'chat'频道中
-    r.publish('chat', u'[%s] %s: %s' % (now.isoformat(), user, message))
+    r.publish('chat', u'[%s] %s: %s' % (now.isoformat(), user, str(message).encode("utf-8")))
     return flask.Response(status=204)
 
 
