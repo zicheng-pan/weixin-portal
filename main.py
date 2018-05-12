@@ -43,7 +43,8 @@ def event_stream():
     while True:
         str_message = pubsub.get_message()
         if str_message:
-            print("message:"+str(str_message))
+            print("2222222222222222222")
+            print("message:1111111111111111111"+str(str_message))
             # Server-Send Event 的数据格式以'data:'开始
             return 'data: %s\n\n' % str_message['data'].decode("utf-8")
         time.sleep(0.1)
