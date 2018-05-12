@@ -75,7 +75,7 @@ def stream():
 
 
 @app.route('/chat')
-def home():
+def chat():
     # 如果用户没有登陆的话，则强制登陆
     if 'user' not in flask.session:
         return flask.redirect('/login')
