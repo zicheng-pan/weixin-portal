@@ -56,7 +56,7 @@ def login():
 
 
 # 接收 javascript post 过来的消息
-@app.route('/post', methods=['POST'])
+@app.route('/js_post', methods=['POST'])
 def post():
     message = flask.request.form['message']
     user = flask.session.get('user', 'anonymous')
@@ -99,7 +99,7 @@ def home():
             // POST 消息到服务端
             $('#in').keyup(function(e){
                 if (e.keyCode == 13) {
-                    $.post('/post', {'message': $(this).val()});
+                    $.post('/js_post', {'message': $(this).val()});
                     $(this).val('');
                 }
             });
