@@ -7,7 +7,7 @@ import datetime
 import time
 
 app = Flask('welcome-portal')
-app.secret_key = 'shiyanlou'
+app.secret_key = 'panzicheng'
 
 email_list = ["programvip@sina.com",]
 r = redis.StrictRedis()
